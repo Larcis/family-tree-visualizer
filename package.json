@@ -3,6 +3,7 @@
   "version": "3.0.0",
   "dependencies": {
     "classnames": "2.3.1",
+    "pdfjs-dist": "^2.13.216",
     "pinch-zoom-pan": "3.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -26,7 +27,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "https://sanichkotikov.github.io/react-family-tree-example/",
+  "homepage": "https://larcis.github.io/family-tree-visualizer/",
   "browserslist": [
     "Chrome 74",
     "Firefox 63",
