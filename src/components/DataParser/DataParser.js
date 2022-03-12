@@ -326,9 +326,9 @@ export default function DataParser({setData}){
                     let compitableArr = generateRelativesTreeFromHumans(humans)
                     let rootId = findHumanWithRelation(humans, "Babasının Annesi").id
                     // let rootId = findHumanWithRelation(humans, "Annesi").id
-                    setData(compitableArr, rootId, rootId);
-                    // let meId = findHumanWithRelation(humans, "Kendisi").id
-                    // setData(compitableArr, meId, meId);
+                    // setData(compitableArr, rootId, rootId);
+                    let meId = findHumanWithRelation(humans, "Kendisi").id
+                    setData(compitableArr, meId, meId);
                     setPdfState("Hazır.");
                 }).catch((e)=>{
                     console.log("PDF Load error: ", e);
