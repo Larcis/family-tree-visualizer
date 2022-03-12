@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/family-tree-visualizer/static/css/main.3246e99e.chunk.css",
-    "main.js": "/family-tree-visualizer/static/js/main.1a1ad360.chunk.js",
-    "main.js.map": "/family-tree-visualizer/static/js/main.1a1ad360.chunk.js.map",
+    "main.js": "/family-tree-visualizer/static/js/main.b6a644a3.chunk.js",
+    "main.js.map": "/family-tree-visualizer/static/js/main.b6a644a3.chunk.js.map",
     "runtime-main.js": "/family-tree-visualizer/static/js/runtime-main.0edff749.js",
     "runtime-main.js.map": "/family-tree-visualizer/static/js/runtime-main.0edff749.js.map",
     "static/js/2.ceb69f52.chunk.js": "/family-tree-visualizer/static/js/2.ceb69f52.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.0edff749.js",
     "static/js/2.ceb69f52.chunk.js",
     "static/css/main.3246e99e.chunk.css",
-    "static/js/main.1a1ad360.chunk.js"
+    "static/js/main.b6a644a3.chunk.js"
   ]
 }
