@@ -1,41 +1,14 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Node, ExtNode } from 'relatives-tree/lib/types';
 import ReactFamilyTree from 'react-family-tree';
 import PinchZoomPan from '../PinchZoomPan/PinchZoomPan';
 import FamilyNode from '../FamilyNode/FamilyNode';
 import DataParser from '../DataParser/DataParser';
 
-import averageTree from 'relatives-tree/samples/average-tree.json';
-
 import styles from './App.module.css';
 
-let myFam = [
-  {
-    "id": "HkqEDLvxE",
-    "gender": "female",
-    "parents": [],
-    "siblings": [],
-    "spouses": [{
-      "id": "HkqEDLvxE1",
-      "type": "married"
-    }],
-    "children": []
-  },
-  {
-    "id": "HkqEDLvxE1",
-    "gender": "male",
-    "parents": [],
-    "siblings": [],
-    "spouses": [{
-      "id": "HkqEDLvxE",
-      "type": "married"
-    }],
-    "children": []
-  },
-];
-
-const WIDTH = 70;
-const HEIGHT = 80;
+const WIDTH = 120;
+const HEIGHT = 130;
 
 type Source = Array<Node>
 
@@ -44,29 +17,16 @@ export default React.memo<{}>(
     const [nodes, setNodes] = useState<Source>([]);
     const [myId, setMyId] = useState<string>('');
     const [rootId, setRootId] = useState<string>('');
-
-    function setNewNodes(newNodes: Source){
+    const [showDead, setShowDead] = useState(true);
+    
+    function setNewNodes(newNodes: Source, rootId: string, myId: string){
         if (newNodes) {
           setNodes([]); // Avoid invalid references to unknown nodes
-          setRootId(newNodes[0].id);
-          setMyId(newNodes[0].id);
+          setRootId(rootId);
+          setMyId(myId);
           setNodes(newNodes);
         }
     }
-    useEffect(() => {
-      const loadData = async () => {
-        let newNodes;
-        newNodes = myFam as Source;
-        if (newNodes) {
-          setNodes([]); // Avoid invalid references to unknown nodes
-          setRootId(newNodes[0].id);
-          setMyId(newNodes[0].id);
-          setNodes(newNodes);
-        }
-      }
-
-      loadData();
-    }, [])
 
     const onResetClick = useCallback(() => setRootId(myId), [myId]);
 
@@ -76,6 +36,11 @@ export default React.memo<{}>(
           <h1 className={styles.title}>
             E-devlet Soyağacı görselleştirme
           </h1>
+          <div>
+            <input type="checkbox" onChange={(e)=>{
+              setShowDead(e.target.checked)
+            }} defaultChecked/>
+          </div>
           <div>
             <input type="text" defaultValue="Annesi,Babası,Kendisi" id="relationKeywordBases"/>
           </div>
@@ -98,6 +63,7 @@ export default React.memo<{}>(
               className={styles.tree}
               renderNode={(node: ExtNode) => (
                 <FamilyNode
+                  showDead={showDead}
                   key={node.id}
                   node={node}
                   isRoot={node.id === rootId}
