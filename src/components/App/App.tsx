@@ -48,6 +48,11 @@ export default React.memo<{}>(
             <DataParser setData={setNewNodes}></DataParser>
           </div>
         </header>
+        {nodes.length == 0 && <p style={{textAlign: "center", width: "100%"}}>
+          <a href="https://www.turkiye.gov.tr/nvi-alt-ust-soy-bilgisi-sorgulama">Buradaki</a> linki ziyaret ederek 
+          açılan pdf'i "PDF olarak" kaydet seçeneğiyle kaydedin. Sonrasında siteye geri dönerek "PDF Yükle" butonu ile
+          pdf'i yükleyin. 
+        </p>}
         {nodes.length > 0 && (
           <PinchZoomPan
             min={0.5}
